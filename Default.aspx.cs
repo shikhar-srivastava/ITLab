@@ -41,18 +41,32 @@ public partial class _Default : System.Web.UI.Page
             SqlCommand com;
             SqlDataAdapter ada;
             com= new SqlCommand("select name from items where category=@category", con);
-           
+            SqlDataReader reader;
             int no_categories = 4;
-            for(int i=1;i<=4;i++)
+            try
+	{
+	    con.Open();
+	    for(int i=1;i<= no_categories;i++)
             {
                       
                     com.Parameters.AddWithValue("category","cat"+i.ToString());       
-                    ada= = new SqlDataAdapter(com);
-                    ds = new DataSet();
-                    ada.Fill(ds);
-			
+                    reader = com.ExecuteReader();
+			while(reader.read())
+			{
+				if(i==1)l1.Items.Add(new ListItem(reader["name"]));
+				if(i==2)l2.Items.Add(new ListItem(reader["name"]));
+				if(i==3)l3.Items.Add(new ListItem(reader["name"]));
+				if(i==4)l4.Items.Add(new ListItem(reader["name"]));
+			}
             }
-        }
+        
+	}catch(Exception e){ }
+	finally
+	{
+		con.Close();
+	}
+
+	}
     }
 
     protected void submit_Click(object sender, EventArgs e)
