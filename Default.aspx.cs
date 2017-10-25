@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -95,4 +97,15 @@ public partial class _Default : System.Web.UI.Page
 }
 
 //----Kinkdom----
+[Serializable]
+public partial class Cart
+{
+    List<Tuple<string, int>> c1, c2, c3, c4;
+
+    Cart() {
+        c1 = new List<Tuple<string, int>>();
+        c2 = new List<Tuple<string, int>>();
+        c3 = new List<Tuple<string, int>>();
+        c4 = new List<Tuple<string, int>>();
+    }
 }
