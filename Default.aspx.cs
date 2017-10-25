@@ -4,15 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-public partial class _Default : System.Web.UI.Page
-{
-    using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 /*
 —-------DETAILS---------—
 DataBase name: db1 
@@ -55,13 +46,9 @@ public partial class _Default : System.Web.UI.Page
                       
                     com.Parameters.AddWithValue("category","cat"+i.ToString());       
                     ada= = new SqlDataAdapter(com);
-
                     ds = new DataSet();
                     ada.Fill(ds);
-                    staff_id.DataSource = ds;
-                    staff_id.DataTextField = "id";
-                    staff_id.DataValueField = "id";
-                    staff_id.DataBind();
+			
             }
         }
     }
