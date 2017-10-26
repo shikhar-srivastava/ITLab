@@ -124,10 +124,9 @@
                     <div class="m-bot-20">
                         <span>Delivery time: </span>
                         <asp:DropDownList ID="timeslot" runat="server" ValidationGroup="Checkout">
-                            <asp:ListItem Text="Morning" Value="1" />
-                            <asp:ListItem Text="Afternoon" Value="2" />
-                            <asp:ListItem Text="Evening" Value="3" />
-                            <asp:ListItem Text="Night" Value="4" />
+                            <asp:ListItem Text="Morning" Value="0" />
+                            <asp:ListItem Text="Afternoon" Value="1" />
+                            <asp:ListItem Text="Evening" Value="2" />
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ControlToValidate="timeslot" Text="Required!" ForeColor="Red" runat="server" />
                     </div>
