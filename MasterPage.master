@@ -34,7 +34,14 @@
     </div>
     <div class="footer">
         <div class="container">
-
+            <div class="row">
+                <div class="col-xs-6 text-center">
+                    We at FoodAndStuff believe in simplicity.
+                </div>
+                <div class="col-xs-6 text-center">
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="Manager_Validate.aspx" runat="server">Management Interface</asp:HyperLink>
+                </div>
+            </div>
         </div>
     </div>
     </form>
@@ -42,6 +49,5 @@
     <script src="js/jQuery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/default.js"></script>
-    
 </body>
 </html>

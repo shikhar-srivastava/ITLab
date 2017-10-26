@@ -1,4 +1,6 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Manager.aspx.cs" Inherits="Manager" MasterPageFile="~/MasterPage.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Manager.aspx.cs" Inherits="Manager" MasterPageFile="~/MasterPage.master"%>
+<%@ PreviousPageType VirtualPath="~/Manager_Validate.aspx"%>
+
 <asp:Content ID="content1" ContentPlaceHolderID="main" runat="server">
   
         <asp:SqlDataSource ID="item_source" runat="server"

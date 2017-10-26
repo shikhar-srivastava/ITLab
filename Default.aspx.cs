@@ -82,54 +82,15 @@ public partial class _Default : System.Web.UI.Page
                     ada.Fill(ds[i-1]);
                 }
                 c1ListBox.DataSource = ds[0]; c1ListBox.DataTextField = "name"; c1ListBox.DataValueField = "name"; c1ListBox.DataBind();
-                c2ListBox.DataSource = ds[1]; c1ListBox.DataTextField = "name"; c2ListBox.DataValueField = "name"; c2ListBox.DataBind();
-                c1ListBox.DataSource = ds[2]; c1ListBox.DataTextField = "name"; c3ListBox.DataValueField = "name"; c3ListBox.DataBind();
-                c1ListBox.DataSource = ds[3]; c1ListBox.DataTextField = "name"; c4ListBox.DataValueField = "name"; c4ListBox.DataBind();
+                c2ListBox.DataSource = ds[1]; c2ListBox.DataTextField = "name"; c2ListBox.DataValueField = "name"; c2ListBox.DataBind();
+                c3ListBox.DataSource = ds[2]; c3ListBox.DataTextField = "name"; c3ListBox.DataValueField = "name"; c3ListBox.DataBind();
+                c4ListBox.DataSource = ds[3]; c4ListBox.DataTextField = "name"; c4ListBox.DataValueField = "name"; c4ListBox.DataBind();
             }
             catch (Exception ex) { Response.Write(ex.StackTrace + "<br/>" + ex.Message); }
             finally { con.Close(); }
         }
     }
 
-    //protected void submit_Click(object sender, EventArgs e)
-    //{
-    //    SqlConnection con = new SqlConnection();
-    //    con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=jHousekeeping; Integrated Security=True;Pooling=False";
-    //    SqlCommand com = new SqlCommand("update staff set city=@city where id=@id", con);
-    //    com.Parameters.AddWithValue("city", cityLB.SelectedValue);
-    //    com.Parameters.AddWithValue("id", staff_id.SelectedValue);
-    //    try
-    //    {
-    //        con.Open();
-    //        com.ExecuteNonQuery();
-    //    }
-    //    catch(Exception err) { }
-    //    finally { con.Close(); }
-    //}
-
-    //protected void staff_id_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    SqlConnection con = new SqlConnection();
-    //    con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=jHousekeeping; Integrated Security=True;Pooling=False";
-    //    try
-    //    {
-    //        con.Open();
-    //        SqlCommand com = new SqlCommand("select * from staff where id=" + staff_id.SelectedValue, con);
-    //        SqlDataReader reader = com.ExecuteReader();
-    //        reader.Read();
-    //        Details.Text = 
-    //                  staff_id.SelectedValue + " "
-    //                + reader["FirstName"].ToString() + " "
-    //                + reader["LastName"].ToString() + " "
-    //                + reader["Dno"].ToString() + " "
-    //                + reader["Street"].ToString() + " "
-    //                + reader["City"].ToString() + " "
-    //                + reader["State"].ToString() + " "
-    //                + reader["zipCode"].ToString() + " ";
-    //    }
-    //    catch(Exception ex) { }
-    //    finally { con.Close(); }
-    //}
     protected void c1_AddCart(object sender, EventArgs e)
     {
         Cart c = (Cart)Session["cart"];
