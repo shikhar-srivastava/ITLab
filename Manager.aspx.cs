@@ -104,13 +104,13 @@ public partial class Manager : System.Web.UI.Page
         con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=foodandstuff; Integrated Security=True;Pooling=False";
         //Get Slot Called
         string id="";
-        if (sender.GetType().ToString().EndsWith("Button"))
-        {
+        //if (sender.GetType().ToString().EndsWith("Button"))
+        //{
             Button btn = (Button)sender;
             id = btn.ID;
-        }
-        if (id.Equals("morning_start")) slot_called = 0;
-        else if (id.Equals("afternoon_start")) slot_called = 1;
+        //}
+        if (String.Compare("morning_start", id) == 0) slot_called = 0;
+        else if (String.Compare("afternoon_start", id) == 0) slot_called = 1;
         else slot_called = 2;
 
         //Using APPLICATION STATE
@@ -157,8 +157,8 @@ public partial class Manager : System.Web.UI.Page
             Button btn = (Button)sender;
             id = btn.ID;
         }
-        if (id.Equals("morning_stop")) slot_called = 0;
-        else if (id.Equals("afternoon_stop")) slot_called = 1;
+        if (String.Compare("morning_start", id) == 0) slot_called = 0;
+        else if (String.Compare("afternoon_start", id) == 0) slot_called = 1;
         else slot_called = 2;
 
 

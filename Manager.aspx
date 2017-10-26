@@ -14,12 +14,12 @@
                 <asp:SqlDataSource ID="customer_source" runat="server"
                     ConnectionString="<%$ConnectionStrings:foodandstuff %>"
                     SelectCommand="select * from customer"
-                    UpdateCommand="update customer set name=@name address=@address where customer_id=@customer_id"></asp:SqlDataSource>
+                    UpdateCommand="update customer set name=@name, address=@address where customer_id=@customer_id"></asp:SqlDataSource>
             
                  <asp:SqlDataSource ID="order_source" runat="server"
                     ConnectionString="<%$ConnectionStrings:foodandstuff %>"
                     SelectCommand="select * from _order"
-                    UpdateCommand="update _order set item_id=@item_id, customer_id=@customer_id, quantity=@quantity,time_slot=@time_slot where order_id=@order_id"></asp:SqlDataSource>
+                    UpdateCommand="update _order set status=@status, quantity=@quantity, time_slot=@time_slot, van_id=van_id where order_id=@order_id and item_id=@item_id and customer_id=@customer_id"></asp:SqlDataSource>
             
                  <asp:SqlDataSource ID="van_source" runat="server"
                     ConnectionString="<%$ConnectionStrings:foodandstuff %>"
@@ -29,12 +29,12 @@
                  <asp:SqlDataSource ID="manufacturer_source" runat="server"
                     ConnectionString="<%$ConnectionStrings:foodandstuff %>"
                     SelectCommand="select * from manufacturer"
-                    UpdateCommand="update name=@name, item_id=@item_id from manufacturer where manufacturer_id=@manufacturer_id"></asp:SqlDataSource>
+                    UpdateCommand="update manufacturer set name=@name, item_id=@item_id where manufacturer_id=@manufacturer_id"></asp:SqlDataSource>
          
                  <asp:SqlDataSource ID="employee_source" runat="server"
                     ConnectionString="<%$ConnectionStrings:foodandstuff %>"
                     SelectCommand="select * from employee"
-                    UpdateCommand="update name=@name, salary=@salary from employee where employee_id=@employee_id"></asp:SqlDataSource>
+                    UpdateCommand="update employee set name=@name, salary=@salary where employee_id=@employee_id"></asp:SqlDataSource>
             
                  Items:  
                  <br/>    
@@ -93,7 +93,7 @@
                               <asp:TextBox ID="perishable_tb" runat="server" Text='<%#Bind("perishable") %>' Width="90px"></asp:TextBox><br />
                             </EditItemTemplate>
                         </asp:TemplateField>
-                      <asp:BoundField HeaderText="Van ID" DataField="van_id" ReadOnly="true"/>
+                      <%--<asp:BoundField HeaderText="Van ID" DataField="van_id" ReadOnly="true"/>--%>
                       <asp:CommandField ShowEditButton="true" />
                     </Columns>
                 </asp:GridView>
@@ -103,7 +103,7 @@
                   <asp:GridView ID="order_grid" DataSourceID="order_source" runat="server"
                     AutoGenerateColumns="false"
                     AllowPaging="true" PageSize="3" AllowSorting="true"
-                    DataKeyNames="order_id">
+                    DataKeyNames="order_id, item_id, customer_id">
                     <HeaderStyle BackColor="LightGreen" ForeColor="Red"/>
                     <Columns>
                         <asp:BoundField HeaderText="Order ID" DataField="order_id" ReadOnly="true" SortExpression="order_id" />
@@ -126,6 +126,7 @@
                               <asp:TextBox ID="time_slot_tb" runat="server" Text='<%#Bind("time_slot") %>' Width="90px"></asp:TextBox><br />
                             </EditItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField HeaderText="Van" DataField="van_id" />
                         <asp:CommandField ShowEditButton="true" />
                     </Columns>
                 </asp:GridView>
@@ -146,6 +147,7 @@
                               <asp:TextBox ID="status_tb_model" runat="server" Text='<%#Bind("status") %>' Width="90px"></asp:TextBox><br />
                             </EditItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField HeaderText="Van" DataField="van_id" />
                         <asp:CommandField ShowEditButton="true" />
                     </Columns>
                 </asp:GridView>
