@@ -79,13 +79,16 @@ public partial class Manager : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(PreviousPage == null)
+        if (!IsPostBack)
         {
-            Response.Redirect("Manager_Validate.aspx?msg=You+need+to+login+first");
-        }
-        if (PreviousPage.Auth == false)
-        {
-            Response.Redirect("Manager_Validate.aspx?msg=Invalid+Login");
+            if (PreviousPage == null)
+            {
+                Response.Redirect("Manager_Validate.aspx?msg=You+need+to+login+first");
+            }
+            if (PreviousPage.Auth == false)
+            {
+                Response.Redirect("Manager_Validate.aspx?msg=Invalid+Login");
+            }
         }
     }
     protected void Pre_Render(object sender, EventArgs e)

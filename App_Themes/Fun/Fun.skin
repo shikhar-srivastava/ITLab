@@ -1,0 +1,2 @@
+﻿<asp:RequiredFieldValidator ForeColor="Red" runat="server"/>
+<asp:HyperLink runat="server" ForeColor="White" />

@@ -36,10 +36,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 text-center">
-                    We at FoodAndStuff believe in simplicity.
+                    We, at FoodAndStuff, believe in simplicity.
                 </div>
                 <div class="col-xs-6 text-center">
-                    <asp:HyperLink ID="HyperLink1" NavigateUrl="Manager_Validate.aspx" runat="server">Management Interface</asp:HyperLink>
+                    <asp:HyperLink ID="Manager" NavigateUrl="Manager_Validate.aspx" runat="server">Manager Interface</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="Customer" NavigateUrl="Default.aspx" runat="server">Customer Interface</asp:HyperLink>
                 </div>
             </div>
         </div>
