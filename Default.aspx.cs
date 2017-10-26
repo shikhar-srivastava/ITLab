@@ -41,12 +41,13 @@ public partial class _Default : System.Web.UI.Page
             {
                 Session["cart"] = new Cart();
             }
+            if (Request.Cookies["customer"] != null)
+            {
+                cust_name.Text = Request.Cookies["customer"]["name"];
+                address.Text = Request.Cookies["customer"]["address"];
+            }
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db1; Integrated Security=True;Pooling=False";
-            SqlCommand com;
-            SqlDataAdapter ada;
-            com= new SqlCommand("select name from items where category=@category", con);
+            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=foodandstuff; Integrated Security=True;Pooling=False");
             SqlDataReader reader;
             int no_categories = 4;
             try
@@ -54,15 +55,17 @@ public partial class _Default : System.Web.UI.Page
 	            con.Open();
 	            for(int i=1;i<= no_categories;i++)
                 {
-                    com.Parameters.AddWithValue("category","cat"+i.ToString());       
+                    SqlCommand com = new SqlCommand("select name from item where category=@category", con);
+                    com.Parameters.AddWithValue("category",i);       
                     reader = com.ExecuteReader();
 			        while(reader.Read())
 			        {
-				        if(i==1)c1ListBox.Items.Add(new ListItem(reader["name"].ToString()));
-				        if(i==2)c2ListBox.Items.Add(new ListItem(reader["name"].ToString()));
-				        if(i==3)c3ListBox.Items.Add(new ListItem(reader["name"].ToString()));
-				        if(i==4)c4ListBox.Items.Add(new ListItem(reader["name"].ToString()));
+				        if(i==1)c1ListBox.Items.Add(reader["name"].ToString());
+				        else if(i==2)c2ListBox.Items.Add(reader["name"].ToString());
+				        else if(i==3)c3ListBox.Items.Add(reader["name"].ToString());
+				        else if(i==4)c4ListBox.Items.Add(reader["name"].ToString());
 			        }
+                    reader.Close();
                 }
         
 	        }catch(Exception ex){ }
@@ -180,6 +183,7 @@ public partial class _Default : System.Web.UI.Page
         {
             c4Heading.Visible = true;
             c4Items.Visible = true;
+            c4HR.Visible = true;
             c4Items.Text = "";
             foreach (KeyValuePair<string, int> item in c.c4)
             {
@@ -189,18 +193,33 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
+    protected void checkout_Click(object sender, EventArgs e)
+    {
+        Cart c = (Cart)Session["cart"];
+        c.timeslot_id = timeslot.SelectedValue;
+
+        HttpCookie d = new HttpCookie("customer");
+        d["name"] = cust_name.Text;
+        d["address"] = address.Text;
+        d.Expires = DateTime.Now.AddMonths(1);
+        Response.Cookies.Add(d);
+
+        
+    }
 }
 
-//----Kinkdom----
 [Serializable]
 public partial class Cart
 {
     public Dictionary<string,int> c1, c2, c3, c4;
+    public string timeslot_id;
 
     public Cart() {
         c1 = new Dictionary<string, int>();
         c2 = new Dictionary<string, int>();
         c3 = new Dictionary<string, int>();
         c4 = new Dictionary<string, int>();
+        timeslot_id = "1";
     }
 }

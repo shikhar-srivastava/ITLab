@@ -20,12 +20,22 @@
                     Food and Stuff
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12 tagline">
+                    We provide food....and stuff.
+                </div>
+            </div>
         </div>
     </div>
     <div>
         <asp:ContentPlaceHolder id="main" runat="server">
         
         </asp:ContentPlaceHolder>
+    </div>
+    <div class="footer">
+        <div class="container">
+
+        </div>
     </div>
     </form>
 

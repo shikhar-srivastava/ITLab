@@ -3,7 +3,7 @@
 <asp:Content ContentPlaceHolderID="main" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-sm-9 card-container" style="height: 1000px;">
+            <div class="col-sm-8 card-container">
                 <div class="panel-group card" id="accordion" role="tablist" aria-multiselectable="true">
                     <h4>Our product catalog:</h4>
                     <div class="panel panel-default">
@@ -14,18 +14,16 @@
 				                </a>
 			                </h4>
 		                </div>
-		                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 			                <div class="panel-body">
 				                <asp:ListBox ID="c1ListBox" CssClass="item-list" runat="server">
-                                    <asp:ListItem Text="Banana" />
-                                    <asp:ListItem Text="Apples" />
-                                    <asp:ListItem Text="Guavava" />
-                                    <asp:ListItem Text="Chikoo" />
 				                </asp:ListBox><br />
                                 <asp:RequiredFieldValidator ControlToValidate="c1ListBox" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c1"/>
-                                Quantity: 
-                                <asp:TextBox ID="c1Quantity" runat="server" />
-                                <asp:RequiredFieldValidator ControlToValidate="c1Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c1"/>
+                                <div>
+                                    <span>Quantity: </span>
+                                    <asp:TextBox ID="c1Quantity" runat="server" />
+                                    <asp:RequiredFieldValidator ControlToValidate="c1Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c1"/>
+                                </div>
                                 <asp:Button ID="c1Add" runat="server" Text="Add to cart" OnClick="c1_AddCart" ValidationGroup="c1"/>
                                 
 			                </div>
@@ -42,15 +40,13 @@
 		                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 			                <div class="panel-body">
 				                <asp:ListBox ID="c2ListBox" CssClass="item-list" runat="server">
-                                    <asp:ListItem Text="Banana" />
-                                    <asp:ListItem Text="Apples" />
-                                    <asp:ListItem Text="Guavava" />
-                                    <asp:ListItem Text="Chikoo" />
 				                </asp:ListBox><br />
                                 <asp:RequiredFieldValidator ControlToValidate="c2ListBox" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c2"/>
-                                Quantity: 
-                                <asp:TextBox ID="c2Quantity" runat="server" />
-                                <asp:RequiredFieldValidator ControlToValidate="c2Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c2"/>
+                                <div>
+                                    <span>Quantity: </span>
+                                    <asp:TextBox ID="c2Quantity" runat="server" />
+                                    <asp:RequiredFieldValidator ControlToValidate="c2Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c2"/>
+                                </div>
                                 <asp:Button ID="c2Add" runat="server" Text="Add to cart" OnClick="c2_AddCart" ValidationGroup="c2"/>
 			                </div>
 		                </div>
@@ -66,15 +62,13 @@
 		                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 			                <div class="panel-body">
 				                <asp:ListBox ID="c3ListBox" CssClass="item-list" runat="server">
-                                    <asp:ListItem Text="Banana" />
-                                    <asp:ListItem Text="Apples" />
-                                    <asp:ListItem Text="Guavava" />
-                                    <asp:ListItem Text="Chikoo" />
 				                </asp:ListBox><br />
                                 <asp:RequiredFieldValidator ControlToValidate="c3ListBox" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c3"/>
-                                Quantity: 
-                                <asp:TextBox ID="c3Quantity" runat="server" />
-                                <asp:RequiredFieldValidator ControlToValidate="c3Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c3"/>
+                                <div>
+                                    <span>Quantity: </span>
+                                    <asp:TextBox ID="c3Quantity" runat="server" />
+                                    <asp:RequiredFieldValidator ControlToValidate="c3Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c3"/>
+                                </div>
                                 <asp:Button ID="c3Add" runat="server" Text="Add to cart" OnClick="c3_AddCart" ValidationGroup="c3"/>
 			                </div>
 		                </div>
@@ -90,15 +84,13 @@
 		                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 			                <div class="panel-body">
 				                <asp:ListBox ID="c4ListBox" CssClass="item-list" runat="server">
-                                    <asp:ListItem Text="Banana" />
-                                    <asp:ListItem Text="Apples" />
-                                    <asp:ListItem Text="Guavava" />
-                                    <asp:ListItem Text="Chikoo" />
 				                </asp:ListBox><br />
                                 <asp:RequiredFieldValidator ControlToValidate="c4ListBox" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c4"/>
-                                Quantity: 
-                                <asp:TextBox ID="c4Quantity" runat="server" />
-                                <asp:RequiredFieldValidator ControlToValidate="c4Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c4"/>
+                                <div>
+                                    <span>Quantity: </span>
+                                    <asp:TextBox ID="c4Quantity" runat="server" />
+                                    <asp:RequiredFieldValidator ControlToValidate="c4Quantity" runat="server" Text="Required" ForeColor="Red" ValidationGroup="c4"/>
+                                </div>
                                 <asp:Button ID="c4Add" runat="server" Text="Add to cart" OnClick="c4_AddCart" ValidationGroup="c4"/>
 			                </div>
 		                </div>
@@ -106,7 +98,7 @@
                     
                 </div>
             </div>
-            <div class="col-sm-3 card-container">
+            <div class="col-sm-4 card-container">
                 <div class="card">
                     <div><h4>Cart: </h4></div>
                     <div>
@@ -127,9 +119,29 @@
                     <div>
                         <asp:Label id="c4Heading" Text="Personal Care" runat="server" Visible="false" Font-Bold="true" /><br />
                         <asp:Label ID="c4Items" Text="" runat="server" Visible="false" />
+                        <hr id="c4HR" runat="server" visible="false"/>
+                    </div>
+                    <div class="m-bot-20">
+                        <span>Delivery time: </span>
+                        <asp:DropDownList ID="timeslot" runat="server" ValidationGroup="Checkout">
+                            <asp:ListItem Text="Morning" Value="1" />
+                            <asp:ListItem Text="Afternoon" Value="2" />
+                            <asp:ListItem Text="Evening" Value="3" />
+                            <asp:ListItem Text="Night" Value="4" />
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ControlToValidate="timeslot" Text="Required!" ForeColor="Red" runat="server" />
+                    </div>
+                    <div class="m-bot-20">
+                        <span>Name:     </span><asp:TextBox ID="cust_name" runat="server" />
+                        <asp:RequiredFieldValidator ControlToValidate="cust_name" Text="Required!" ForeColor="Red" runat="server" />
+                    </div>
+                    <div class="m-bot-20">
+                        <span> Address: </span>
+                        <asp:TextBox ID="address" runat="server" />
+                        <asp:RequiredFieldValidator ControlToValidate="address" Text="Required!" ForeColor="Red" runat="server" />
                     </div>
                     <div>
-                        <asp:Button ID="checkout" runat="server" Text="Checkout"/>
+                        <asp:Button ID="checkout" OnClick="checkout_Click" ValidationGroup="Checkouts" runat="server" Text="Checkout" CssClass="orange-btn float-right"/>
                     </div>
                 </div>
             </div>
