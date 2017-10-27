@@ -224,4 +224,10 @@ public partial class Manager : System.Web.UI.Page
         finally { con.Close(); };
     }
 
+    protected void handle_category(object sender, EventArgs e)
+    {
+
+    }
+
+
 }

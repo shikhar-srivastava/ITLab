@@ -98,7 +98,21 @@
                     </Columns>
                 </asp:GridView>
                 <br/> 
-                Orders
+                TimeSlot: 
+                <asp:DropDownList id="dpd" runat="server" OnSelectedIndexChanged="handle_category" AutoPostBack="true">
+                    <asp:ListItem Value="0" Text="Morning Slot"></asp:ListItem>
+                    <asp:ListItem Value="1" Text="Afternoon Slot"></asp:ListItem>
+                    <asp:ListItem Value="2" Text="Evening Slot"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:SqlDataSource id="time_slot_source" runat="server" ConnectionString="<%$ConnectionStrings:foodandstuff%>" SelectCommand="select * from _order where time_slot=@time_slot">
+                    <SelectParameters>
+                        <asp:ControlParameter Name="time_slot" ControlID="dpd" PropertyName="SelectedValue" />  
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                <asp:DetailsView ID="time_slot_view" runat="server" DataSourceID="time_slot_source" AllowPaging="true" ></asp:DetailsView>
+
+
+                Orders : 
                 <br/>
                   <asp:GridView ID="order_grid" DataSourceID="order_source" runat="server"
                     AutoGenerateColumns="false"
